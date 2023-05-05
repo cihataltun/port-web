@@ -16,7 +16,7 @@ class BlogController extends Controller
 
     public function blogDetail($slug) {
         
-        $allposts = Post::all();
+        $allposts = Post::where('status', 1)->get();
         $post_content = Post::where('status', '1')->where('slug', $slug)->first();
         
         return view('frontend.en.blog.blog-detail', compact('allposts', 'post_content'));

@@ -72,8 +72,10 @@ class CategoryController extends Controller
         $category = Category::find($category_id);
         
         if($category) {
+            $category->posts()->delete();
             $category->delete();
-            return redirect('admin/category-list')->with('message', 'Kategori başarıyla silinmiştir.');
+
+            return redirect('admin/category-list')->with('message', 'Kategori, kendisine ait postlarıyla birlikte başarıyla silinmiştir.');
         }
         else {
             return redirect('admin/category-list')->with('message', 'Kategori silinemedi.');

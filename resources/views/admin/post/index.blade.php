@@ -49,8 +49,9 @@
                                                     <th>Kategori</th>
                                                     <th>Name</th>
                                                     <th>Slug</th>
-                                                    <th>Created By</th>
+                                                    <th>Meta Title</th>
                                                     <th>Status</th>
+                                                    <th>Created By</th>
                                                     <th class="text-center">İşlemler</th>
                                                     {{-- <th>Description</th> --}}
                                                     {{-- <th>Image</th> --}}
@@ -73,8 +74,8 @@
                                                         {{ $post->category->name }}</td>
                                                     <td data-field="name">{{ $post->name }}</td>
                                                     <td data-field="slug">{{ $post->slug }}</td>
+                                                    <td data-field="meta_title">{{ $post->meta_title }}</td>
                                                     {{-- <td data-field="description">{!! $post->description !!}</td> --}}
-                                                    <td data-field="created_by">{{ Auth::user()->name }}</td>
                                                     <td data-field="status">
                                                         @if($post->status == '1')
                                                         <div class="font-size-13">
@@ -86,6 +87,7 @@
                                                         </div>
                                                         @endif
                                                     </td>
+                                                    <td data-field="created_by">{{ Auth::user()->name }}</td>
                                                     {{-- <td data-field="image">
                                                         <img src="{{ asset('uploads/post/'.$post->image) }}" width="50px" height="50px" alt="Img">
                                                     </td> --}}

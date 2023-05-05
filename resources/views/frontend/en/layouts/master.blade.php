@@ -7,6 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- Favicon  -->
+    <title>@yield('title', 'PORT Nature Luxury Resort Hotel & Spa')</title>
     <!-- Analystic  -->
     <meta name="facebook-domain-verification" content="mvq6hdc13l7j698g2wjnddeqirfpjk" />
     <meta name="yandex-verification" content="592b184402c32d7d" />
@@ -18,7 +19,6 @@
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/favicon-16x16.png') }}">
     <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('assets/favicon-32x32.png') }}">
     <!-- Page Title -->
-    <title>@yield('title', 'PORT Nature Luxury Resort Hotel & Spa')</title>
     <!-- Bootstrap -->
     <link rel="stylesheet" href="{{ asset('assets/frontend/libs/css/bootstrap.min.css') }}"/>
     <link rel="stylesheet" href="{{ asset('assets/frontend/libs/css/swiper-bundle.min.css') }}"/>

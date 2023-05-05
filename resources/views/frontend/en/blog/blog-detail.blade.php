@@ -1,6 +1,6 @@
 @extends('frontend.en.layouts.master')
 
-@section('title', "$post_content->name - Port Nature Luxury Resort & Spa Hotel")
+@section('title', "$post_content->meta_title")
 
 @section('content')
 

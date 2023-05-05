@@ -71,7 +71,7 @@
                                                             </button>
                                                           </div>
                                                           <div class="modal-body">
-                                                            Silmek istediğinize emin misiniz?
+                                                            <span style="color: red">Bu kategoriyi silerseniz ona ait tüm postlarda silinecektir.</span> <br> Silmek istediğinize emin misiniz?
                                                           </div>
                                                           <div class="modal-footer">
                                                             <a href="{{ url('admin/category-delete/'.$category->id) }}" type="button" class="btn btn-danger">Evet, sil!</a>
