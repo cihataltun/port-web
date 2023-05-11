@@ -46,6 +46,7 @@
                                                 <tr>
                                                     <th>ID</th>
                                                     <th>Kategori İsmi</th>
+                                                    <th>Kategori Türü</th>
                                                     <th>Kategori Slug</th>
                                                     <th class="text-center">İşlemler</th>
                                                 </tr>
@@ -55,6 +56,7 @@
                                                 <tr data-id="{{ $category->id }}">
                                                   <td data-field="id" style="width: 80px">{{ $category->id }}</td>
                                                   <td data-field="name">{{ $category->name }}</td>
+                                                  <td data-field="type">{{ $category->type }}</td>
                                                   <td data-field="slug">{{ $category->slug }}</td>
                                                   <td style="width: 100px">
                                                     <a href="{{ url('admin/category-edit/'.$category->id) }}" class="btn btn-md btn-warning m-2" title="Düzenle">

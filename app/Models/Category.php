@@ -13,19 +13,16 @@ class Category extends Model
 
     protected $fillable = [
         'name',
-        'slug'
-        // 'status'
-        // 'parent_id',
-        // 'image',
-        // 'description',
-        // 'meta_title',
-        // 'meta_description',
-        // 'meta_keyword',
-        // 'created_by',
+        'slug',
+        'type'
     ];
 
     public function posts() {
 
         return $this->hasMany(Post::class, 'category_id', 'id');
+    }
+    public function posts_type() {
+
+        return $this->hasMany(Post::class, 'category_type', 'type');
     }
 }

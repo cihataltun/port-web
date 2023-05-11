@@ -26,7 +26,8 @@ class CategoryController extends Controller
 
         $request->validate([
             'name' => 'required|string|max:200',
-            'slug' => 'required|string|max:200',
+            'type' => 'required|string|max:200',
+            'slug' => 'required|string|max:200'
         ]);
 
         if (Category::where('name', $request->name)->exists()) {
@@ -35,6 +36,7 @@ class CategoryController extends Controller
 
         Category::create([
             'name' => $request->name,
+            'type' => $request->type,
             'slug' => Str::slug($request->slug)
         ]);
 
@@ -53,7 +55,7 @@ class CategoryController extends Controller
 
         $request->validate([
             'name' => 'required|string|max:200',
-            'slug' => 'required|string|max:200',
+            'slug' => 'required|string|max:200'
         ]);   
 
             if (Category::where('name', $request->name)->exists() && $category->name !== $request->name) {
@@ -61,6 +63,7 @@ class CategoryController extends Controller
             }
 
             $category->name = $request->name;
+            $category->type = $request->type;
             $category->slug = Str::slug($request->slug);
             $category->update();
 

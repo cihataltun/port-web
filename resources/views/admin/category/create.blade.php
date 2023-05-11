@@ -48,6 +48,16 @@
                                             <input type="text" name="name" class="form-control" required placeholder="Kategori adını yazınız"/>
                                         </div>
                                         <div class="mb-3">
+                                            <label for="">Kategori Türü</label>
+                                            <select name="type" class="form-select" id="validationCategory" required="">
+                                                <option selected="" disabled="" value="">Kategori seçiniz</option>
+                                                <option value="Hotels">Hotels</option>
+                                                <option value="Resort">Resort</option>
+                                                <option value="Deluxe">Deluxe</option>
+                                                <option value="Holiday">Holiday</option>
+                                            </select>
+                                        </div>
+                                        <div class="mb-3">
                                             <label for="">Kategori Slug</label>
                                             <input type="text" name="slug" class="form-control" required placeholder="Kategori slug yazınız"/>
                                         </div>

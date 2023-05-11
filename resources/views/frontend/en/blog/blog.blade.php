@@ -17,7 +17,7 @@
         
         @foreach ($postsList as $post)
             <div class="miniBlog">
-                <a href="{{ url('blog-page/'.$post->slug) }}">
+                <a href="{{ url("$post->slug") }}">
                     <figure>
                         <img src="{{ asset('uploads/blogs/' . $post->title_image) }}" alt="{{ $post->meta_title }}"/>
                     </figure>

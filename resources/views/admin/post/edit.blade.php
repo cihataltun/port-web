@@ -59,6 +59,16 @@
                                             </select>
                                         </div>
                                         <div class="mb-3">
+                                            <label for="">Kategori Türü</label>
+                                            <select name="category_type" class="form-select" id="validationCategory">
+                                                @foreach ($categories as $category)
+                                                    <option value="{{ $category->type }}" {{ $post->category_type == $category->type ? 'selected' : '' }}>
+                                                        {{ $category->type }}
+                                                    </option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                        <div class="mb-3">
                                             <label for="">Post Adı</label>
                                             <input type="text" name="name" value="{{ $post->name }}" class="form-control" required />
                                         </div>

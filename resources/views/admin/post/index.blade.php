@@ -47,6 +47,7 @@
                                                     <th>ID</th>
                                                     <th>Resim</th>
                                                     <th>Kategori</th>
+                                                    <th>Kategori Türü</th>
                                                     <th>Name</th>
                                                     <th>Slug</th>
                                                     <th>Meta Title</th>
@@ -67,11 +68,8 @@
                                                     <td data-field="title_image">
                                                         <img src="{{ asset('uploads/blogs/'.$post->title_image) }}" width="50px" height="50px" alt="Başlık Görseli">
                                                     </td>
-                                                    <td data-field="category_name">
-                                                        {{-- @if ($post->category->name == NULL)
-                                                            
-                                                        @endif --}}
-                                                        {{ $post->category->name }}</td>
+                                                    <td data-field="category_name">{{ $post->category->name }}</td>
+                                                    <td data-field="category_type">{{ $post->category_type }}</td>
                                                     <td data-field="name">{{ $post->name }}</td>
                                                     <td data-field="slug">{{ $post->slug }}</td>
                                                     <td data-field="meta_title">{{ $post->meta_title }}</td>

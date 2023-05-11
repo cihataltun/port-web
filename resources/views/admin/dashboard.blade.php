@@ -210,7 +210,7 @@
                         <!-- end row -->
     
                         <div class="row">
-                            <div class="col-xl-8">
+                            <div class="col-xl-9">
                                 <div class="card">
                                     <div class="card-body">
                                         <div class="dropdown float-end">
@@ -236,7 +236,8 @@
                                                 <thead class="table-light">
                                                     <tr>
                                                         <th>ID</th>
-                                                        <th>Kategori</th>
+                                                        <th>Kategori Adı</th>
+                                                        <th>Kategori Türü</th>
                                                         <th>Name</th>
                                                         <th>Slug</th>
                                                         <th>Created By</th>
@@ -253,6 +254,7 @@
                                                 <tr data-id="1">
                                                     <td data-field="id" style="width: 80px">{{ $post->id }}</td>
                                                     <td data-field="category_name">{{ $post->category->name }}</td>
+                                                    <td data-field="category_type">{{ $post->category->type }}</td>
                                                     <td data-field="name">{{ $post->name }}</td>
                                                     <td data-field="slug">{{ $post->slug }}</td>
                                                     {{-- <td data-field="description">{!! $post->description !!}</td> --}}

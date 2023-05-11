@@ -28,10 +28,6 @@ use App\Http\Controllers\Frontend\MeetingController;
 
 Route::get('/', [HomePageController::class, 'index'])->name('homepage');
 Route::get('en', [HomePageController::class, 'index'])->name('homepage');
-// BLOG PAGES
-Route::get('blog-page', [BlogController::class, 'index'])->name('blog');
-Route::get('blog-page/{slug}', [BlogController::class, 'blogDetail'])->name('blog-detail');
-//BLOG PAGES END
 
 Route::get('rooms', [AccommodationController::class, 'index'])->name('accommodation');
 Route::get('standard-rooms', [AccommodationController::class, 'standard_rooms'])->name('standard-rooms');
@@ -294,4 +290,9 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function () {
     Route::get('dropzone/fetch', [GalleryController::class, 'fetch'])->name('dropzone.fetch');    
     Route::get('dropzone/delete', [GalleryController::class, 'delete'])->name('dropzone.delete');
 });
+
+// BLOG PAGES
+Route::get('blog-page', [BlogController::class, 'index'])->name('blog');
+Route::get('{slug}', [BlogController::class, 'blogDetail'])->name('blog-detail');
+//BLOG PAGES END
 

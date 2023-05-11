@@ -17,7 +17,7 @@
             <div class="blogGrid">
                 @foreach ($allposts as $post_item)
                     <div class="miniBlog">
-                        <a href="{{ url('blog-page/'.$post_item->slug) }}">
+                        <a href="{{ url("$post_item->slug") }}">
                             <figure>
                                 <img src="{{ asset('uploads/blogs/' . $post_item->title_image) }}" alt="{{ $post_item->meta_title }}"/>
                             </figure>

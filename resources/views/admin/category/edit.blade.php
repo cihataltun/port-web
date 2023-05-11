@@ -49,11 +49,22 @@
                                         @method('PUT')
                                         <div class="mb-3">
                                             <label for="">Kategori Adı</label>
-                                            <input type="text" name="name" value="{{ $category->name }}" class="form-control" required placeholder="Kategori Adını Yazınız"/>
+                                            <input type="text" name="name" value="{{ $category->name }}" class="form-control" required placeholder="Kategori adını yazınız"/>
+                                        </div>
+                                        <div class="mb-3">
+                                        <div class="mb-3">
+                                            <label for="">Kategori Türü</label>
+                                            <select name="type" class="form-select" id="validationCategory">
+                                                <option selected="" disabled="" value="">Kategori türü seç</option>
+                                                <option value="Hotels" {{ $category->type == 'Hotels' ? 'selected' : '' }}>Hotels</option>
+                                                <option value="Resort" {{ $category->type == 'Resort' ? 'selected' : '' }}>Resort</option>
+                                                <option value="Deluxe" {{ $category->type == 'Deluxe' ? 'selected' : '' }}>Deluxe</option>
+                                                <option value="Holiday" {{ $category->type == 'Holiday' ? 'selected' : '' }}>Holiday</option>
+                                            </select>
                                         </div>
                                         <div class="mb-3">
                                             <label for="">Kategori Slug</label>
-                                            <input type="text" name="slug" value="{{ $category->slug }}" class="form-control" required placeholder="Kategori Slug Yazınız"/>
+                                            <input type="text" name="slug" value="{{ $category->slug }}" class="form-control" required placeholder="Kategori slug yazınız"/>
                                         </div>
                                         <div class="mb-0">
                                             <div>

@@ -45,12 +45,12 @@
                                             <thead class="table-light">
                                                 <tr>
                                                     <th>ID</th>
-                                                    <th>Top Title</th>
                                                     <th>Slider Görseli</th>
-                                                    {{-- <th>Title</th>
-                                                    <th>Sub Title</th>
-                                                    <th>Offer</th>
-                                                    <th>Link</th> --}}
+                                                    <th>Top Title</th>
+                                                    <th>Title</th>
+                                                    {{--<th>Sub Title</th>
+                                                    <th>Offer</th> --}}
+                                                    <th>Link</th> 
                                                     <th>Status</th>
                                                     <th class="text-center">İşlemler</th>
                                                 </tr>
@@ -59,14 +59,14 @@
                                                 @foreach ($sliders as $slider)
                                                 <tr data-id="1">
                                                     <td data-field="id" style="width: 80px">{{ $slider->id }}</td>
-                                                    <td data-field="top_title">{{ $slider->top_title }}</td>
                                                     <td data-field="image">
                                                         <img src="{{ asset('assets/admin/images/sliders/'.$slider->image) }}" width="250px" height="150px" alt="Img">
                                                     </td>
-                                                    {{-- <td data-field="title">{{ $slider->title }}</td>
-                                                    <td data-field="sub_title">{{ $slider->sub_title }}</td>
-                                                    <td data-field="offer">{{ $slider->offer }}</td>
-                                                    <td data-field="link">{{ $slider->link }}</td> --}}
+                                                    <td data-field="top_title">{{ $slider->top_title }}</td>
+                                                    <td data-field="title">{{ $slider->title }}</td>
+                                                    {{-- <td data-field="sub_title">{{ $slider->sub_title }}</td>
+                                                    <td data-field="offer">{{ $slider->offer }}</td> --}}
+                                                    <td data-field="link"><a href="{{ $slider->link }}">{{ $slider->link }}</a></td> 
                                                     <td data-field="status">
                                                         @if($slider->status == '1')
                                                         <div class="font-size-13">

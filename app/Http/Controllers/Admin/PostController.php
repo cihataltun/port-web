@@ -8,7 +8,6 @@ use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Redirect;
 
 class PostController extends Controller
 {
@@ -19,7 +18,6 @@ class PostController extends Controller
         return view('admin.post.index', compact('posts'));
     }
 
-
     public function create()
     {
         $categories = Category::all();
@@ -27,16 +25,11 @@ class PostController extends Controller
 
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         $request->validate([
             'category_id' => 'required|integer',
+            'category_type' => 'required|string|max:200',
             'name' => 'required|string|max:200',
             'slug' => 'required|string|max:200',
             'title_description' => 'required|string',
@@ -53,6 +46,7 @@ class PostController extends Controller
 
         Post::create([
             'category_id' => $request->category_id,
+            'category_type' => $request->category_type,
             'name' => $request->name,
             'slug' => Str::slug($request->slug),
             'title_description' => $request->title_description,
@@ -74,13 +68,6 @@ class PostController extends Controller
         return view('admin.post.edit', compact('post', 'categories'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $post_id)
     {
         $post = Post::find($post_id);
@@ -110,6 +97,7 @@ class PostController extends Controller
         }
 
             $post->category_id = $request->category_id;
+            $post->category_type = $request->category_type;
             $post->name = $request->name;
             $post->slug = Str::slug($request->slug);
             $post->title_description = $request->title_description;
@@ -119,7 +107,6 @@ class PostController extends Controller
             $post->created_by = Auth::user()->name;
             $post->status = $request->status == true ? '1' : '0';
             $post->update();
-
 
         return redirect('admin/post-list')->with('message', 'Değişiklikler başarıyla kaydedildi.');
     }

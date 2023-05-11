@@ -45,15 +45,35 @@
                                         @csrf
 
                                         <div class="mb-3">
-                                            <label for="validationCategory" class="form-label">Kategoriler</label>
+                                            <label for="validationCategory" class="form-label">Kategori Adı</label>
                                             <select name="category_id" class="form-select" id="validationCategory" required="">
                                                 <option selected="" disabled="" value="">Kategori seçiniz</option>
-                                                @foreach ($categories as $category)
-                                                    <option value="{{ $category->id }}">{{ $category->name }}</option>
-                                                @endforeach
+                                                @if(count($categories) == 0)
+                                                    <option value="" disabled> Kategori bulunmamaktadır. Lütfen önce bir kategori eklemelisiniz!</option>
+                                                @else
+                                                    @foreach ($categories as $category)
+                                                        <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                                    @endforeach
+                                                @endif                                            
                                             </select>
                                             <div class="invalid-feedback">
                                                 Lütfen bir kategori seçiniz!
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="validationCategory" class="form-label">Kategori Türü</label>
+                                            <select name="category_type" class="form-select" id="validationCategory" required="">
+                                                <option selected="" disabled="" value="">Kategori türü seçiniz</option>
+                                                @if(count($categories) == 0)
+                                                    <option value="" disabled> Kategori türü bulunmamaktadır. Lütfen önce bir kategori eklemelisiniz!</option>
+                                                @else
+                                                    @foreach ($categories as $category)
+                                                        <option value="{{ $category->type }}">{{ $category->type }}</option>
+                                                    @endforeach
+                                                @endif                                            
+                                            </select>
+                                            <div class="invalid-feedback">
+                                                Lütfen bir kategori türü seçiniz!
                                             </div>
                                         </div>
 
@@ -104,12 +124,20 @@
                                         </div>
                                         <div class="mb-0">
                                             <div>
+                                                @if (count($categories) == 0)
+                                                    <button type="submit" onclick="return false;" class="btn btn-primary waves-effect waves-light me-1" disabled>Kaydet</button>
+                                                    <a href="{{ url('admin/category-list') }}" type="button" class="btn btn-secondary waves-effect">
+                                                        İptal
+                                                    </a>    
+                                                    <p style="color: red">ÖNCE BİR KATEGORİ EKLEMELİSİNİZ.</p>
+                                                @else
                                                 <button type="submit" class="btn btn-primary waves-effect waves-light me-1">
                                                     Kaydet
                                                 </button>
                                                 <a href="{{ url('admin/category-list') }}" type="button" class="btn btn-secondary waves-effect">
                                                     İptal
                                                 </a>
+                                                @endif
                                             </div>
                                         </div>
                                     </form>
